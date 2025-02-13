@@ -3,7 +3,7 @@ import os
 from collections.abc import Callable
 from typing import Any
 
-from omero.gateway import BlitzGateway
+from omero.gateway import BlitzGateway  # type: ignore
 
 from omero_docker_test.config import setup_logging
 
