@@ -60,7 +60,7 @@ ignore_missing_imports = false
 pretty = true
 warn_unused_configs = true
 
-["tool.mypy.some_untyped_package.*"]
+["tool.mypy.omero.gateway"]
 ignore_missing_imports = true
 
 ["tool.mypy.another_untyped_package.*"]
