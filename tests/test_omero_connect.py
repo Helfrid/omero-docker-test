@@ -51,3 +51,6 @@ def test_successful_connection(clean_env):
 #     assert "Failed to connect to Omero" in captured.out, (
 #         "Expected error message not found in stdout"
 #     )
+#     )
+#     )
+#     )
