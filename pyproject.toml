@@ -15,7 +15,6 @@ dependencies = [
     "omero-py>=5.19.6",
     "pandas>=2.2.3",
     "python-dotenv>=1.0.1",
-    "zeroc-ice",
 ]
 
 [build-system]
