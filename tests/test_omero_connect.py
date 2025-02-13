@@ -1,6 +1,7 @@
 import os
 
 from dotenv import load_dotenv
+
 from omero_docker_test.config import set_env_vars
 from omero_docker_test.omero_connect import omero_connect
 
@@ -28,9 +29,9 @@ def test_successful_connection(clean_env):
 
     server_version = check_connection()
 
-    assert (
-        server_version is not None
-    ), "Failed to get server version - connection may not be established"
+    assert server_version is not None, (
+        "Failed to get server version - connection may not be established"
+    )
 
 
 # def test_connection_failure(capsys, clean_env):

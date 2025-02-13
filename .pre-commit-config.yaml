@@ -29,10 +29,13 @@ repos:
         - id: check-merge-conflict
 
 -   repo: https://github.com/charliermarsh/ruff-pre-commit
-    rev: v0.3.0
+    rev: v0.9.6
     hooks:
         - id: ruff
-          args: [--fix]
+          args: [--fix, --config=pyproject.toml]
+        # Run the formatter.
+        - id: ruff-format
+          args: [--config=pyproject.toml]
 
 
 -   repo: https://github.com/pre-commit/mirrors-mypy
