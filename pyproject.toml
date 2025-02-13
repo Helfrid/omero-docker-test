@@ -148,6 +148,3 @@ major_version_zero = true
 bump_message = "bump: version $current_version → $new_version"
 update_changelog_on_bump = true
 annotated_tag = true
-
-[tool.uv.sources]
-zeroc-ice = { url = "https://github.com/glencoesoftware/zeroc-ice-py-macos-universal2/releases/download/20240131/zeroc_ice-3.6.5-cp312-cp312-macosx_11_0_universal2.whl" }
