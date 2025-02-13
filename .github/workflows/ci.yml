@@ -16,9 +16,6 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: Start OMERO services
-      run: docker compose up -d
-
     - name: Install uv
       uses: astral-sh/setup-uv@v3
       with:
@@ -30,8 +27,10 @@ jobs:
 
     - name: Install dependencies
       run: |
-        uv pip install --verbose zeroc-ice@https://github.com/glencoesoftware/zeroc-ice-py-linux-x86_64/releases/download/20240202/zeroc_ice-3.6.5-cp312-cp312-manylinux_2_28_x86_64.whl
-        uv sync --all-extras --dev
+        uv sync --all-extras --dev --verbose
+
+    - name: Start OMERO services
+      run: docker compose up -d
 
     - name: Lint with Ruff
       run: uv run ruff check .
