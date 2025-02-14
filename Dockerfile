@@ -6,8 +6,10 @@ COPY . .
 
 # Install uv and use it to install dependencies
 RUN pip install uv && \
-    uv pip install -e . && \
-    uv pip install --dev
+    uv venv && \
+    uv add --editable . && \
+    uv sync --all-extras --dev
+
 
 # Set environment variables
 ENV LOG_LEVEL=DEBUG \
