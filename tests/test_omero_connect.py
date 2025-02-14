@@ -18,9 +18,10 @@ def test_set_env_vars_local():
 
 
 def test_successful_connection(clean_env):
-    os.environ.update(
-        {"USERNAME": "root", "PASSWORD": "omero", "HOST": "localhost"}
-    )
+    # Use environment variable if set (for Docker), otherwise default to localhost
+    host = os.getenv("HOST", "localhost")
+
+    os.environ.update({"USERNAME": "root", "PASSWORD": "omero", "HOST": host})
 
     @omero_connect
     def check_connection(conn):
