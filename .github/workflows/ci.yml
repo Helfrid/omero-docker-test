@@ -84,8 +84,8 @@ jobs:
     - name: Start OMERO server and run tests
       run: |
         docker compose up -d database omeroserver
-        # Wait for OMERO server to be ready
-        sleep 120
+        # Wait longer for OMERO server to be ready
+        sleep 240  # Increased to 4 minutes
         docker compose run --rm test
 
     - name: Cleanup
