@@ -32,8 +32,7 @@ services:
       nofile:
         soft: 8192
         hard: 65536
-
-  healthcheck:
+    healthcheck:
       test: ["CMD", "nc", "-z", "localhost", "4064"]
       interval: 10s
       timeout: 5s
