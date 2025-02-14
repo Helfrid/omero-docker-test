@@ -33,12 +33,21 @@ services:
         soft: 8192
         hard: 65536
 
+  healthcheck:
+      test: ["CMD", "nc", "-z", "localhost", "4064"]
+      interval: 10s
+      timeout: 5s
+      retries: 6
+
   test:
     build: .
     networks:
       - omero
     depends_on:
-      - omeroserver
+      omeroserver:
+        condition: service_healthy
+    environment:
+      - HOST=omeroserver
 
 networks:
   omero:
