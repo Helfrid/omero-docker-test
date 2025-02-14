@@ -7,8 +7,7 @@ COPY . .
 # Install uv and use it to install dependencies
 RUN pip install uv && \
     uv venv && \
-    uv add --editable . && \
-    uv sync --all-extras --dev
+    uv sync --all-extras --dev --editable .
 
 
 # Set environment variables
