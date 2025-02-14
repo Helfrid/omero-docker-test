@@ -17,12 +17,7 @@ def test_set_env_vars_local():
     assert password == "omero", "Password is not correct"
 
 
-def test_successful_connection(clean_env):
-    # Use environment variable if set (for Docker), otherwise default to localhost
-    host = os.getenv("HOST", "localhost")
-
-    os.environ.update({"USERNAME": "root", "PASSWORD": "omero", "HOST": host})
-
+def test_successful_connection():
     @omero_connect
     def check_connection(conn):
         # Just check if we can get the server version, which doesn't require any data
