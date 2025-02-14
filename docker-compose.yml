@@ -11,9 +11,6 @@ services:
       - "database:/var/lib/postgresql/data"
 
   omeroserver:
-    # This container uses the tag for the latest server release of OMERO 5
-    # To upgrade to the next major release, increment the major version number
-    #image: "openmicroscopy/omero-server:5"
     image: "openmicroscopy/omero-server:5"
     environment:
       CONFIG_omero_db_host: database
@@ -32,20 +29,13 @@ services:
       nofile:
         soft: 8192
         hard: 65536
-    healthcheck:
-      test: ["CMD", "bash", "-c", "ps aux | grep 'OMERO.server' | grep -v grep || exit 1"]
-      interval: 30s
-      timeout: 20s
-      retries: 15
-      start_period: 120s  # Give it 2 minutes to start up
 
   test:
     build: .
     networks:
       - omero
     depends_on:
-      omeroserver:
-        condition: service_healthy
+      - omeroserver
     environment:
       - HOST=omeroserver
 
