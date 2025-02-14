@@ -33,17 +33,12 @@ services:
         soft: 8192
         hard: 65536
 
-#  omeroweb:
-#    # This container uses the tag for the latest web release of OMERO 5
-#    # To upgrade to the next major release, increment the major version number
-#    #image: "openmicroscopy/omero-web-standalone:5"
-#    image: "ghcr.io/manics/omero-web-docker:ubuntu"
-#    environment:
-#      OMEROHOST: omeroserver
-#    networks:
-#      - omero
-#    ports:
-#      - "4080:4080"
+  test:
+    build: .
+    networks:
+      - omero
+    depends_on:
+      - omeroserver
 
 networks:
   omero:
