@@ -33,11 +33,11 @@ services:
         soft: 8192
         hard: 65536
     healthcheck:
-      test: ["CMD", "bash", "-c", "ps aux | grep -v grep | grep 'OMERO.server' || exit 1"]
+      test: ["CMD", "bash", "-c", "ps aux | grep 'OMERO.server' | grep -v grep || exit 1"]
       interval: 30s
       timeout: 20s
-      retries: 10
-      start_period: 60s
+      retries: 15
+      start_period: 120s  # Give it 2 minutes to start up
 
   test:
     build: .
