@@ -10,6 +10,10 @@ from omero_docker_test.config import setup_logging
 logger = setup_logging("omero_utils")
 
 
+def hello_world() -> None:
+    print("Hello, world!")
+
+
 def omero_connect(func: Callable[..., Any]) -> Callable[..., Any]:
     """
     Decorator that handles OMERO connection lifecycle management.
