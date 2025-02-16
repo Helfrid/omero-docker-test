@@ -32,7 +32,7 @@ jobs:
       run: |
         echo "LOG_LEVEL=DEBUG" >> $GITHUB_ENV
         echo "LOG_FILE_PATH=/tmp/omero_screen.log" >> $GITHUB_ENV
-        echo "HOST=localhost" >> $GITHUB_ENV
+        echo "HOST=omeroserver" >> $GITHUB_ENV
         echo "USERNAME=helfrid" >> $GITHUB_ENV
 
     - name: Lint with Ruff
